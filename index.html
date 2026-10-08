@@ -1,72 +1,850 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayla Store — Coleções exclusivas</title>
-<meta name="description" content="Ayla Store — loja de coleções digitais.">
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0c0b10;color:#fff}
-header{padding:18px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #25232c;position:sticky;top:0;background:#0c0b10ee;backdrop-filter:blur(10px);z-index:10}
-.logo{font-size:22px;font-weight:800;letter-spacing:.5px}.logo span{color:#d9a7ff}
-nav a{color:#ddd;text-decoration:none;margin-left:20px;font-size:14px}
-.hero{padding:80px 6% 70px;max-width:1100px;margin:auto}.tag{color:#d9a7ff;text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:2px}
-h1{font-size:clamp(42px,8vw,76px);line-height:.95;margin:16px 0}.hero p{color:#bbb;max-width:580px;font-size:18px;line-height:1.6}
-.btn{display:inline-block;background:#fff;color:#111;padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:700;margin-top:12px}
-section{padding:35px 6%;max-width:1200px;margin:auto}.section-title{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}
-h2{font-size:30px;margin:0}.muted{color:#999;font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#15131b;border:1px solid #292631;border-radius:18px;overflow:hidden}
-.cover{height:300px;background:linear-gradient(135deg,#33213d,#17151d);display:flex;align-items:center;justify-content:center;color:#c9b4d4;font-size:14px}
-.card-body{padding:18px}.card h3{margin:0 0 7px}.price{font-size:20px;font-weight:800;margin:15px 0}.buy{width:100%;border:0;border-radius:10px;padding:12px;background:#d9a7ff;color:#17121c;font-weight:800;cursor:pointer}
-footer{margin-top:60px;padding:35px 6%;border-top:1px solid #25232c;color:#888;text-align:center;font-size:13px}
-.notice{background:#17151d;border:1px solid #292631;padding:14px;border-radius:12px;color:#aaa;font-size:13px;margin-top:25px}
-@media(max-width:750px){nav{display:none}.grid{grid-template-columns:1fr 1fr}.cover{height:220px}}
-@media(max-width:480px){.grid{grid-template-columns:1fr}.hero{padding-top:55px}}
-</style>
-</head>
-<body>
-<header>
-  <div class="logo">Ayla <span>Store</span></div>
-  <nav><a href="#colecoes">Coleções</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></nav>
-</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayla Store | Coleções digitais exclusivas</title>
+    <meta
+      name="description"
+      content="Ayla Store oferece coleções digitais premium com visual elegante, acessos rápidos e atendimento direto." 
+    />
+    <style>
+      :root {
+        --bg: #0d0b12;
+        --bg-soft: #171522;
+        --panel: #201c2b;
+        --panel-2: #121018;
+        --line: rgba(255, 255, 255, 0.08);
+        --text: #f5f5f7;
+        --muted: #b7b0c7;
+        --purple: #d9a7ff;
+        --purple-strong: #bf7bff;
+        --pink: #ffb7d5;
+        --gold: #f8d99a;
+        --success: #6de7b6;
+        --shadow: 0 18px 40px rgba(0,0,0,0.28);
+      }
 
-<main>
-<section class="hero">
-  <div class="tag">Conteúdo digital exclusivo</div>
-  <h1>Suas melhores<br>coleções em um só lugar.</h1>
-  <p>Uma loja simples, elegante e preparada para vender coleções digitais diretamente pelo celular.</p>
-  <a class="btn" href="#colecoes">Ver coleções</a>
-  <div class="notice">As imagens abaixo são espaços reservados. Substitua-as pelas suas fotos antes de publicar.</div>
-</section>
+      * { box-sizing: border-box; }
 
-<section id="colecoes">
-  <div class="section-title"><h2>Coleções</h2><span class="muted">Escolha uma coleção</span></div>
-  <div class="grid">
-    <article class="card"><div class="cover">FOTO / CAPA 01</div><div class="card-body"><h3>Essentials</h3><p class="muted">Coleção digital com 10 fotos.</p><div class="price">R$ 19,90</div><button class="buy" onclick="comprar('Essentials','19,90')">Comprar</button></div></article>
-    <article class="card"><div class="cover">FOTO / CAPA 02</div><div class="card-body"><h3>Premium</h3><p class="muted">Coleção digital com 25 fotos.</p><div class="price">R$ 39,90</div><button class="buy" onclick="comprar('Premium','39,90')">Comprar</button></div></article>
-    <article class="card"><div class="cover">FOTO / CAPA 03</div><div class="card-body"><h3>Exclusive</h3><p class="muted">Coleção digital especial.</p><div class="price">R$ 59,90</div><button class="buy" onclick="comprar('Exclusive','59,90')">Comprar</button></div></article>
-  </div>
-</section>
+      html {
+        scroll-behavior: smooth;
+      }
 
-<section id="sobre">
-  <div class="section-title"><h2>Como funciona</h2></div>
-  <p class="muted" style="line-height:1.8">1. Escolha uma coleção. 2. Faça o pagamento. 3. Receba o acesso ao conteúdo adquirido. Nesta versão, o botão de compra é demonstrativo; o pagamento real pode ser conectado depois.</p>
-</section>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top, rgba(189, 112, 255, 0.18), transparent 32%),
+          var(--bg);
+        color: var(--text);
+      }
 
-<section id="contato">
-  <div class="section-title"><h2>Contato</h2></div>
-  <p class="muted">Atendimento: coloque aqui seu Instagram, e-mail ou WhatsApp.</p>
-</section>
-</main>
+      a { color: inherit; }
+      img { max-width: 100%; display: block; }
 
-<footer>© 2026 Ayla Store · Termos · Privacidade</footer>
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
 
-<script>
-function comprar(nome,preco){
-  alert("Você selecionou: "+nome+" — R$ "+preco+
-  "\\n\\nO pagamento ainda não está conectado nesta versão. O próximo passo é configurar Pix/cartão e a entrega automática.");
-}
-</script>
-</body>
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(13, 11, 18, 0.88);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 76px;
+      }
+
+      .logo {
+        font-size: clamp(1.3rem, 2vw, 1.9rem);
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .logo span {
+        color: var(--purple);
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.94rem;
+        transition: color 0.2s ease;
+      }
+
+      nav a:hover { color: var(--text); }
+
+      .cta-nav {
+        background: linear-gradient(135deg, var(--purple), var(--pink));
+        color: #170d1f !important;
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-weight: 700;
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        padding: 78px 0 52px;
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 38px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        color: var(--purple);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.72rem;
+        font-weight: 800;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.7rem, 6vw, 5.3rem);
+        line-height: 0.96;
+        letter-spacing: -0.06em;
+      }
+
+      .accent {
+        display: block;
+        color: var(--purple);
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.09rem;
+        line-height: 1.8;
+        max-width: 600px;
+        margin: 22px 0 28px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 32px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 24px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 800;
+        border: 1px solid transparent;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--purple), var(--pink));
+        color: #120d16;
+        box-shadow: 0 12px 30px rgba(217, 167, 255, 0.3);
+      }
+
+      .btn-secondary {
+        border-color: var(--line);
+        background: rgba(255,255,255,0.02);
+        color: var(--text);
+      }
+
+      .stats {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+
+      .stat {
+        min-width: 120px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.7rem;
+        margin-bottom: 6px;
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 0.83rem;
+      }
+
+      .hero-visual {
+        background: linear-gradient(160deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .cover-box {
+        position: relative;
+        height: 470px;
+        background:
+          linear-gradient(140deg, rgba(120,83,155,0.5), rgba(18,16,24,0.2)),
+          linear-gradient(135deg, #2b1b35, #0e0d13 56%, #201c2b);
+      }
+
+      .cover-box::before,
+      .cover-box::after {
+        content: "";
+        position: absolute;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .cover-box::before {
+        width: 230px;
+        height: 280px;
+        right: 48px;
+        top: 58px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      }
+
+      .cover-box::after {
+        width: 170px;
+        height: 220px;
+        left: 42px;
+        bottom: 52px;
+        background: linear-gradient(160deg, rgba(217,167,255,0.18), rgba(255,255,255,0.03));
+      }
+
+      .badge {
+        position: absolute;
+        left: 30px;
+        top: 26px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid var(--line);
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--purple);
+      }
+
+      .mini-card {
+        position: absolute;
+        right: 30px;
+        bottom: 26px;
+        width: min(220px, 58%);
+        background: rgba(16, 14, 22, 0.9);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 16px;
+        box-shadow: var(--shadow);
+      }
+
+      .mini-card div {
+        color: var(--muted);
+        font-size: 0.76rem;
+        margin-bottom: 6px;
+      }
+
+      .mini-card strong {
+        font-size: 1.35rem;
+      }
+
+      section {
+        padding: 52px 0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 26px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        letter-spacing: -0.05em;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .card {
+        background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+      }
+
+      .thumb {
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.7);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .thumb-1 {
+        background: linear-gradient(135deg, rgba(128,89,174,0.7), rgba(31,24,40,0.9));
+      }
+
+      .thumb-2 {
+        background: linear-gradient(135deg, rgba(104,155,200,0.6), rgba(25,24,36,0.9));
+      }
+
+      .thumb-3 {
+        background: linear-gradient(135deg, rgba(234,161,196,0.7), rgba(32,24,38,0.9));
+      }
+
+      .card-body {
+        padding: 22px 18px 18px;
+      }
+
+      .card-body h3 {
+        margin: 0 0 8px;
+        font-size: 1.5rem;
+      }
+
+      .card-body p {
+        color: var(--muted);
+        line-height: 1.6;
+        margin: 0 0 18px;
+      }
+
+      .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .price {
+        font-size: 1.55rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .buy {
+        border: 0;
+        padding: 12px 16px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--purple), #f1d8ff);
+        color: #19131f;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 24px;
+      }
+
+      .panel {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 30px 26px;
+      }
+
+      .steps {
+        display: grid;
+        gap: 16px;
+        margin-top: 14px;
+      }
+
+      .step {
+        display: flex;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .step-index {
+        width: 34px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(217,167,255,0.14);
+        color: var(--purple);
+        font-weight: 800;
+      }
+
+      .step h4 {
+        margin: 0 0 6px;
+        font-size: 1.1rem;
+      }
+
+      .step p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .feature-list {
+        display: grid;
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(255,255,255,0.015);
+      }
+
+      .feature-check {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: rgba(109, 231, 182, 0.12);
+        color: var(--success);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+      }
+
+      .quote-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .quote {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 22px 20px;
+      }
+
+      .quote p {
+        color: var(--muted);
+        line-height: 1.8;
+        margin: 0 0 16px;
+      }
+
+      .quote strong {
+        display: block;
+        margin-top: 10px;
+      }
+
+      .faq {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .faq-item {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 20px 18px;
+      }
+
+      .faq-item h4 {
+        margin: 0 0 8px;
+        font-size: 1.08rem;
+      }
+
+      .faq-item p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .contact-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        padding: 26px 22px;
+        background: linear-gradient(135deg, rgba(217,167,255,0.1), rgba(255,255,255,0.02));
+        border: 1px solid var(--line);
+        border-radius: 22px;
+      }
+
+      .contact-copy h3 {
+        margin: 0 0 8px;
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+      }
+
+      .contact-copy p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      footer {
+        padding: 28px 0 60px;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: var(--muted);
+      }
+
+      @media (max-width: 920px) {
+        .hero-inner,
+        .split,
+        .grid,
+        .quote-grid,
+        .faq {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+          padding: 14px 0;
+        }
+
+        nav {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .contact-box {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .hero {
+          padding-top: 54px;
+        }
+
+        .actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .stats {
+          gap: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="logo">Ayla <span>Store</span></div>
+        <nav>
+          <a href="#colecoes">Coleções</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#contato" class="cta-nav">Falar agora</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <div class="eyebrow">Conteúdo digital premium</div>
+            <h1>
+              Coleções que
+              <span class="accent">transformam sua presença.</span>
+            </h1>
+            <p class="lead">
+              A Ayla Store reúne materiais exclusivos, visual elegante e acesso instantâneo para quem quer vender ou consumir coleções digitais com qualidade e sofisticação.
+            </p>
+
+            <div class="actions">
+              <a href="#colecoes" class="btn btn-primary">Ver coleções</a>
+              <a href="#contato" class="btn btn-secondary">Atendimento</a>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <strong>3.2k</strong>
+                <span>itens vendidos</span>
+              </div>
+              <div class="stat">
+                <strong>4.9/5</strong>
+                <span>avaliação média</span>
+              </div>
+              <div class="stat">
+                <strong>24h</strong>
+                <span>entrega rápida</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Visual de apresentação da Ayla Store">
+            <div class="cover-box">
+              <span class="badge">Nova coleção</span>
+              <div class="mini-card">
+                <div>Mais vendida</div>
+                <strong>Essentials</strong>
+                <div style="margin-top:8px; color:#d9a7ff; font-weight:700;">R$ 19,90</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="colecoes">
+        <div class="container">
+          <div class="section-head">
+            <h2>Coleções</h2>
+            <span class="muted">Escolha o melhor pacote para você</span>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <div class="thumb thumb-1">Essentials</div>
+              <div class="card-body">
+                <h3>Essentials</h3>
+                <p>Coleção digital com 10 itens premium para começar com estilo e praticidade.</p>
+                <div class="card-footer">
+                  <span class="price">R$ 19,90</span>
+                  <button class="buy" data-product="Essentials" data-price="19,90">Comprar</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb thumb-2">Premium</div>
+              <div class="card-body">
+                <h3>Premium</h3>
+                <p>Pacote completo com 25 materiais selecionados para uso profissional e elegante.</p>
+                <div class="card-footer">
+                  <span class="price">R$ 39,90</span>
+                  <button class="buy" data-product="Premium" data-price="39,90">Comprar</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb thumb-3">Exclusive</div>
+              <div class="card-body">
+                <h3>Exclusive</h3>
+                <p>Versão especial e limitada, ideal para quem busca exclusividade e acabamento refinado.</p>
+                <div class="card-footer">
+                  <span class="price">R$ 59,90</span>
+                  <button class="buy" data-product="Exclusive" data-price="59,90">Comprar</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="como-funciona">
+        <div class="container split">
+          <div class="panel">
+            <div class="section-head" style="margin-bottom: 8px;">
+              <h2>Como funciona</h2>
+            </div>
+            <div class="steps">
+              <div class="step">
+                <span class="step-index">1</span>
+                <div>
+                  <h4>Escolha sua coleção</h4>
+                  <p>Selecione a opção que melhor combina com o seu estilo e objetivo.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <span class="step-index">2</span>
+                <div>
+                  <h4>Faça o pagamento</h4>
+                  <p>Você pode usar Pix, cartão ou transferência, conforme sua preferência.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <span class="step-index">3</span>
+                <div>
+                  <h4>Receba o acesso</h4>
+                  <p>O conteúdo é entregue de forma rápida e direta para você aproveitar imediatamente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="section-head" style="margin-bottom: 8px;">
+              <h2>Por que escolher</h2>
+            </div>
+            <div class="feature-list">
+              <div class="feature-item">
+                <span class="feature-check">✓</span>
+                <span>Entrega instantânea após confirmação</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-check">✓</span>
+                <span>Visual moderno e premium</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-check">✓</span>
+                <span>Atendimento rápido e personalizado</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-check">✓</span>
+                <span>Materiais prontos para uso</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="depoimentos">
+        <div class="container">
+          <div class="section-head">
+            <h2>Depoimentos</h2>
+            <span class="muted">Clientes que já compraram</span>
+          </div>
+
+          <div class="quote-grid">
+            <div class="quote">
+              <p>“A experiência foi incrível. O visual da coleção é muito elegante e o acesso foi super rápido.”</p>
+              <strong>Marina T.</strong>
+            </div>
+
+            <div class="quote">
+              <p>“Achei a proposta muito bem pensada. Simples, bonita e funcional para vender conteúdo digital.”</p>
+              <strong>João P.</strong>
+            </div>
+
+            <div class="quote">
+              <p>“O pacote Premium superou minhas expectativas. Vale muito a pena para quem quer um trabalho refinado.”</p>
+              <strong>Laura S.</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>Perguntas frequentes</h2>
+          </div>
+
+          <div class="faq">
+            <div class="faq-item">
+              <h4>Como recebo o conteúdo?</h4>
+              <p>Após a confirmação do pagamento, você recebe o acesso via mensagem ou e-mail, dependendo da configuração do seu atendimento.</p>
+            </div>
+
+            <div class="faq-item">
+              <h4>Os materiais são digitais?</h4>
+              <p>Sim. Todos os itens são entregues em formato digital e podem ser acessados rapidamente.</p>
+            </div>
+
+            <div class="faq-item">
+              <h4>Posso pedir ajuda antes de comprar?</h4>
+              <p>Claro. Você pode entrar em contato e receber orientações sobre a melhor coleção para o seu uso.</p>
+            </div>
+
+            <div class="faq-item">
+              <h4>É possível personalizar?</h4>
+              <p>Sim. O site pode ser adaptado com dados reais, contato e outras coleções conforme a sua marca.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato">
+        <div class="container">
+          <div class="contact-box">
+            <div class="contact-copy">
+              <h3>Pronto para vender com mais presença?</h3>
+              <p>Entre em contato e transforme seu catálogo em uma experiência premium.</p>
+            </div>
+            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20as%20cole%C3%A7%C3%B5es%20da%20Ayla%20Store" class="btn btn-primary" target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <div>© 2026 Ayla Store</div>
+        <div class="footer-links">
+          <a href="#colecoes">Coleções</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#contato">Contato</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const buyButtons = document.querySelectorAll('.buy');
+
+      buyButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const product = this.dataset.product || 'Coleção';
+          const price = this.dataset.price || '0';
+          const message = 'Olá! Gostaria de comprar a coleção ' + product + ' por R$ ' + price + '.';
+          const whatsappUrl = 'https://wa.me/5511999999999?text=' + encodeURIComponent(message);
+
+          window.open(whatsappUrl, '_blank');
+        });
+      });
+    </script>
+  </body>
 </html>
